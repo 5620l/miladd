@@ -2198,7 +2198,7 @@ local function run(msg, matches)
 				resolve_username(username,  callbackres, cbres_extra)
 			else
 			
-				return "·······.......·······.......·······.......·······\n>>#نام: "..msg.from.print_name.."\n>>#آیدی: "..msg.from.id.."\n>>#یوزرنیم: @"..(msg.from.username or "ندارید").."\n>>#لینک: http://telegram.me/"..(msg.from.username or "❕").."\n·······.......·······.......·······.......·······\n>>#نام گروه: "..msg.to.print_name.."\n>>#آیدی گروه: "..msg.to.id.." \n·······.......·······.......·······.......·······\n#TeleDiamond"
+				return "·······.......·······.......·······.......·······\n>>#نام: "..msg.from.print_name.."\n>>#آیدی: "..msg.from.id.."\n>>#یوزرنیم: @"..(msg.from.username or "ندارید").."\n>>#لینک: http://telegram.me/"..(msg.from.username or "❕").."\n·······.......·······.......·······.......·······\n>>#نام گروه: "..msg.to.print_name.."\n>>#آیدی گروه: "..msg.to.id.." \n·······.......·······.......·······.......·······\n#Milad0S"
 			end
 		end
 		if matches[1]:lower() == 'newlink' and is_momod(msg) or matches[1] == 'لینک جدید' and is_momod(msg)then
