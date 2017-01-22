@@ -229,7 +229,7 @@ function create_config( )
     "mute",
     "inline"
     },
-    sudo_users = {121624569,278541155,0,tonumber(our_id)},--Sudo users
+    sudo_users = {210116502,278541155,0,tonumber(our_id)},--Sudo users
     moderation = {data = 'data/td.json'},
   }
   serialize_to_file(config, './data/config.lua')
