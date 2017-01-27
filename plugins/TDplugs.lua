@@ -9,7 +9,7 @@ elseif (data.ID == "UpdateMessageEdited") then
   end
   if not is_mod(result.sender_user_id_, result.chat_id_) then
    check_filter_words(result, text)
-   if text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") then
+   if text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") or text:match("[Tt].[Mm][Ee]") then
    if database:get('bot:links:mute'..result.chat_id_) then
     local msgs = {[0] = data.message_id_}
        delete_msg(msg.chat_id_,msgs)
@@ -21,7 +21,7 @@ elseif (data.ID == "UpdateMessageEdited") then
        delete_msg(msg.chat_id_,msgs)
   end
    end
-   if text:match("@") then
+   if caption_text:match("@") or msg.content_.entities_[0].ID and msg.content_.entities_[0].ID == "MessageEntityMentionName" then
    if database:get('bot:tag:mute'..result.chat_id_) then
     local msgs = {[0] = data.message_id_}
        delete_msg(msg.chat_id_,msgs)
@@ -45,7 +45,6 @@ elseif (data.ID == "UpdateMessageEdited") then
        delete_msg(msg.chat_id_,msgs)
   end
    end
-  end
   if database:get('editmsg'..msg.chat_id_) == 'delmsg' then
         local id = msg.message_id_
         local msgs = {[0] = id}
@@ -57,5 +56,6 @@ elseif (data.ID == "UpdateMessageEdited") then
        send(msg.chat_id_, msg.message_id_, 1, '🔹پیام قبل از ادیت شدن :\n\n*'..old_text..'*', 1, 'md')
   end
   end
-    getMessage(msg.chat_id_, msg.message_id_,get_msg_contact)
   end
+  end
+    getMessage(msg.chat_id_, msg.message_id_,get_msg_contact)
